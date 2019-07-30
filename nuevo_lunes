@@ -1,0 +1,28 @@
+pipeline {
+
+	agent none
+
+	
+
+	environment {
+	    MyKeyID="myCustomValue1"
+	}
+	
+	stages {
+
+	stage('Descargar codigo fuente') {
+		environment{
+		    MyKeyID="MyCustomValue"
+		}
+    	steps {
+    		script {
+          		node {
+        				println "\n Mi primer stage.\n MyKeyID value es: ${MyKeyID}\n"
+          		}
+        	}
+    	}
+	} 
+	
+
+}
+}
