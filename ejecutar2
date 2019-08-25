@@ -1,0 +1,40 @@
+pipeline {
+
+	agent none
+
+	
+
+	environment {
+	    MyKeyID="myCustomValue1"
+	}
+	
+	stages {
+
+	stage('Descargar codigo fuente') {
+		environment{
+		    MyKeyID="MyCustomValue"
+		}
+    	steps {
+    		script {
+          		node {
+        				println "\n Mi primer stage.\n MyKeyID value es: ${MyKeyID}\n"
+          		}
+        	}
+    	}
+	}
+	stage('Descargar codigo fuente practico') {
+
+    	steps {
+    		script {
+          		node {
+						//highlightStage("Descargar codigo fuente")
+        				writeFile file: 'comments.txt', text: 'test hello world, saving this text.'
+        				archiveArtifacts artifacts: 'comments.txt'
+          		}
+        	}
+    	}
+	}
+	
+
+}
+}
