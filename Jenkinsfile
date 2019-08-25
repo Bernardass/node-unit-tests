@@ -47,7 +47,7 @@ pipeline {
                         
         				writeFile file: 'comments.txt', text: 'test hello world, saving this text.'
         				archiveArtifacts artifacts: 'comments.txt'
-        				build job: 'comparte/nuevo_lunes', parameters: [[$class: 'StringParameterValue', name: 'MyCustomParameter', value: 'Whatever']], propagate: true, wait: true
+        				build job: 'nuevo_lunes', parameters: [[$class: 'StringParameterValue', name: 'MyCustomParameter', value: 'Whatever']], propagate: true, wait: true
                         println "\n Mi Segundo stage.\n"  
                     
 						
